@@ -1,7 +1,8 @@
 <script>
 
-  const bgColor = 'radial-gradient(ellipse, #80804e 14%, #282724 87%)' 
-  const ikonaURL = 'rosie-ikona.png'
+  // const bgColor = 'radial-gradient(ellipse, #80804e 14%, #282724 87%)' 
+  const rosieURL = 'rosie-cat.jpg'
+//   const rosieW = 50
   
 
   // function ikona (x,y) {
@@ -16,15 +17,19 @@
   
   
    function setup () {
-    const ikonapng = document.createElement('img')
-    ikonapng.src = ikonaURL
-    document.body.style.backgroundImage = bgColor
-    document.body.style.overflow = 'hidden'
-    document.body.style.display = 'flex'
-    document.body.style.justifyContent = 'center'
-    document.body.style.alignItems = 'center'
-    document.body.appendChild(ikonapng)
-    ikonapng.style.position = 'relative'
+    const rosie = document.createElement('img')
+    rosie.src = rosieURL
+    document.body.appendChild(rosie)
+     rosie.style.width = 666 
+    // document.body.style.backgroundImage = 'rosieURL'
+    // document.body.style.overflow = 'hidden'
+    // document.body.style.display = 'flex'
+    // document.body.style.justifyContent = 'center'
+    // document.body.style.alignItems = 'center'
+    // document.body.appendChild(rosie)
+    // rosie.style.position = 'absolute'
+    // // rosie.style.width = 'rosieW'
+    // ikonapng.style.position = 'relative'
   }
     
   window.addEventListener('load', setup)
