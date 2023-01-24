@@ -1,28 +1,42 @@
 <script>
-
-  // const bgColor = 'radial-gradient(ellipse, #80804e 14%, #282724 87%)' 
+  const bgColor = '#0C0402'
   const rosieURL = 'rosie-cat.jpg'
-//   const rosieW = 50
-  
+  const gifURL = 'leaf.gif'
+  const gifOffsetX = 240
+  const gifOffsetY = 240
+  //   const rosieW = 50
 
-  // function ikona (x,y) {
-  //   const ikonapng = document.createElement('img')
-  //   ikonapng.src = ikonaURL
-  //   document.body.appendChild(ikonapng)
-  //   // ikonapng.style.position = 'absolute'
-  //   // ikonapng.style.left = x + 'px'
-  //   // ikonapng.style.top = y + 'px'
-  // }
-  
-  
-  
-   function setup () {
+
+  function createGif(x, y) {
+    const gif = document.createElement('img')
+    gif.src = gifURL + '#' + Math.random()
+    document.body.appendChild(gif)
+    gif.style.position = 'absolute'
+    gif.style.width = 150
+    gif.style.left = x + 'px'
+    gif.style.top = y + 'px'
+  }
+
+  function createGifCircle(num, scale, radius) {
+    for (let i = 0; i < num; i++) {
+      const cx = window.innerWidth / 2 - gifOffsetX
+      const cy = window.innerHeight / 2 - gifOffsetY
+      const x = cx + Math.sin(i * scale) * radius
+      const y = cy + Math.cos(i * scale) * radius
+      createGif(x, y)
+    }
+  }
+
+  function setup() {
     const rosie = document.createElement('img')
     rosie.src = rosieURL
     document.body.appendChild(rosie)
-     rosie.style.width = 666 
-    // document.body.style.backgroundImage = 'rosieURL'
-    // document.body.style.overflow = 'hidden'
+    rosie.style.width = 666
+    document.body.style.backgroundColor = bgColor
+    document.body.style.overflow = 'hidden'
+    createGifCircle(8, 0.8, 100)
+    setTimeout(createGifCircle, 100, 8, 0.8, 200)
+    setTimeout(createGifCircle, 200, 8, 0.8, 300)
     // document.body.style.display = 'flex'
     // document.body.style.justifyContent = 'center'
     // document.body.style.alignItems = 'center'
@@ -31,7 +45,6 @@
     // // rosie.style.width = 'rosieW'
     // ikonapng.style.position = 'relative'
   }
-    
+
   window.addEventListener('load', setup)
-  
 </script>
