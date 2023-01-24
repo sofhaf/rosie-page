@@ -6,6 +6,10 @@
   const pinkURL = 'heart.gif'
   const beeURL = 'bee.gif'
   const mouURL = 'bird.gif'
+  const sqURL = 'sq.gif'
+  const textURL = 'rosie-text.png'
+  const numColumns = window.innerWidth /314
+  const numRows = window.innerHeight /249
 
   function createGif(x, y) {
     const gif = document.createElement('img')
@@ -43,7 +47,7 @@
     }
   }
 
-    function createBee(x, y) {
+  function createBee(x, y) {
     const bee = document.createElement('img')
     bee.src = beeURL + '#' + Math.random()
     document.body.appendChild(bee)
@@ -60,8 +64,8 @@
       createBee(x, y)
     }
   }
-  
-      function createMou(x, y) {
+
+  function createMou(x, y) {
     const mou = document.createElement('img')
     mou.src = mouURL + '#' + Math.random()
     document.body.appendChild(mou)
@@ -78,6 +82,26 @@
       createMou(x, y)
     }
   }
+
+    function createSq(x, y) {
+    const sq = document.createElement('img')
+    sq.src = sqURL + '#' + Math.random()
+   	sq.style.position = 'absolute'
+    sq.style.top = y + 'px'
+    sq.style.left = x + 'px'
+    sq.style.width = 100
+    document.body.appendChild(sq)
+  }
+  
+    function createLine() {
+    for (let r = 0; r < numRows; r++) {
+      for (let c = 0; c < numColumns; c++) {
+        const x = c * 314
+        const y = r * 250
+        createSq(x, y + 400)
+      }
+    }
+    }
   
   function setup() {
     const rosie = document.createElement('img')
@@ -90,6 +114,13 @@
     document.body.appendChild(ikona)
     ikona.style.width = 200
     ikona.style.position = 'relative'
+    const text = document.createElement('img')
+    text.src = textURL
+    document.body.appendChild(text)
+    text.style.position = 'relative'
+    text.style.width = 400
+    text.style.left = 100
+    text.style.top = 280
     document.body.style.backgroundColor = bgColor
     document.body.style.overflow = 'hidden'
     createGifCircle(8, 0.8, 100)
@@ -99,11 +130,13 @@
     setTimeout(createBeeCircle, 500, 8, 0.8, 200)
     setTimeout(createBeeCircle, 800, 8, 0.8, 300)
     createMouCircle(6, 0.3, 200)
+    createLine()
   }
 
   window.addEventListener('load', setup)
   
+
+
   // refresh every 600
   // i wonder what rosie saw while high
-  
 </script>
