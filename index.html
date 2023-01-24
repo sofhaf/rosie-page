@@ -1,0 +1,32 @@
+<script>
+
+  const bgColor = 'radial-gradient(ellipse, #80804e 14%, #282724 87%)' 
+  const ikonaURL = 'rosie-ikona.png'
+  
+
+  // function ikona (x,y) {
+  //   const ikonapng = document.createElement('img')
+  //   ikonapng.src = ikonaURL
+  //   document.body.appendChild(ikonapng)
+  //   // ikonapng.style.position = 'absolute'
+  //   // ikonapng.style.left = x + 'px'
+  //   // ikonapng.style.top = y + 'px'
+  // }
+  
+  
+  
+   function setup () {
+    const ikonapng = document.createElement('img')
+    ikonapng.src = ikonaURL
+    document.body.style.backgroundImage = bgColor
+    document.body.style.overflow = 'hidden'
+    document.body.style.display = 'flex'
+    document.body.style.justifyContent = 'center'
+    document.body.style.alignItems = 'center'
+    document.body.appendChild(ikonapng)
+    ikonapng.style.position = 'relative'
+  }
+    
+  window.addEventListener('load', setup)
+  
+</script>
