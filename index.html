@@ -5,6 +5,7 @@
   const ikonaURL = 'rosie-ikona.png'
   const pinkURL = 'heart.gif'
   const beeURL = 'bee.gif'
+  const mouURL = 'bird.gif'
 
   function createGif(x, y) {
     const gif = document.createElement('img')
@@ -41,6 +42,42 @@
       createPink(x, y)
     }
   }
+
+    function createBee(x, y) {
+    const bee = document.createElement('img')
+    bee.src = beeURL + '#' + Math.random()
+    document.body.appendChild(bee)
+    bee.style.position = 'absolute'
+    bee.style.width = 180
+    bee.style.left = x + 'px'
+    bee.style.top = y + 'px'
+  }
+
+  function createBeeCircle(num, scale, radius) {
+    for (let i = 0; i < num; i++) {
+      const x = 900 + Math.sin(i * scale) * radius
+      const y = 500 + Math.cos(i * scale) * radius
+      createBee(x, y)
+    }
+  }
+  
+      function createMou(x, y) {
+    const mou = document.createElement('img')
+    mou.src = mouURL + '#' + Math.random()
+    document.body.appendChild(mou)
+    mou.style.position = 'absolute'
+    mou.style.width = 200
+    mou.style.left = x + 'px'
+    mou.style.top = y + 'px'
+  }
+
+  function createMouCircle(num, scale, radius) {
+    for (let i = 0; i < num; i++) {
+      const x = 500 + Math.sin(i * scale) * radius
+      const y = Math.cos(i * scale) * radius
+      createMou(x, y)
+    }
+  }
   
   function setup() {
     const rosie = document.createElement('img')
@@ -58,7 +95,10 @@
     createGifCircle(8, 0.8, 100)
     setTimeout(createGifCircle, 300, 8, 0.8, 200)
     setTimeout(createGifCircle, 600, 8, 0.8, 300)
-    createPinkCircle(8, 0.8, 100)
+    setTimeout(createPinkCircle, 200, 8, 0.8, 100)
+    setTimeout(createBeeCircle, 500, 8, 0.8, 200)
+    setTimeout(createBeeCircle, 800, 8, 0.8, 300)
+    createMouCircle(6, 0.3, 200)
   }
 
   window.addEventListener('load', setup)
