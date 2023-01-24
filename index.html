@@ -2,9 +2,7 @@
   const bgColor = '#0C0402'
   const rosieURL = 'rosie-cat.jpg'
   const gifURL = 'leaf.gif'
-  const gifOffsetX = 240
-  const gifOffsetY = 240
-  //   const rosieW = 50
+  const ikonaURL = 'rosie-ikona.png'
 
 
   function createGif(x, y) {
@@ -19,10 +17,8 @@
 
   function createGifCircle(num, scale, radius) {
     for (let i = 0; i < num; i++) {
-      const cx = window.innerWidth / 2 - gifOffsetX
-      const cy = window.innerHeight / 2 - gifOffsetY
-      const x = cx + Math.sin(i * scale) * radius
-      const y = cy + Math.cos(i * scale) * radius
+      const x = 900 + Math.sin(i * scale) * radius
+      const y = 500 + Math.cos(i * scale) * radius
       createGif(x, y)
     }
   }
@@ -32,19 +28,22 @@
     rosie.src = rosieURL
     document.body.appendChild(rosie)
     rosie.style.width = 666
+    rosie.style.position = 'absolute'
+    const ikona = document.createElement('img')
+    ikona.src = ikonaURL
+    document.body.appendChild(ikona)
+    ikona.style.width = 200
+    ikona.style.position = 'relative'
     document.body.style.backgroundColor = bgColor
     document.body.style.overflow = 'hidden'
     createGifCircle(8, 0.8, 100)
-    setTimeout(createGifCircle, 100, 8, 0.8, 200)
-    setTimeout(createGifCircle, 200, 8, 0.8, 300)
-    // document.body.style.display = 'flex'
-    // document.body.style.justifyContent = 'center'
-    // document.body.style.alignItems = 'center'
-    // document.body.appendChild(rosie)
-    // rosie.style.position = 'absolute'
-    // // rosie.style.width = 'rosieW'
-    // ikonapng.style.position = 'relative'
+    setTimeout(createGifCircle, 300, 8, 0.8, 200)
+    setTimeout(createGifCircle, 600, 8, 0.8, 300)
   }
 
   window.addEventListener('load', setup)
+  
+  refresh every 600
+  i wonder what rosie saw while high
+  
 </script>
